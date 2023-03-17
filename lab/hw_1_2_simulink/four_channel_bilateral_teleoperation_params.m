@@ -3,19 +3,19 @@ clear all;
 close all;
 
 % delay
-time_delay = 0.01;
+time_delay = 0.1;
 
 % Input function parameter (sin or step with low pass filter)
-A = 3;
+A = 1;
 
 % Low pass frequency cuff off
 Flp = 0.5;
 % Sin frequency
-Fc = 1; 
+Fc = 0.5; 
 
 % Human intention controller (PD)
-Ph = 10*1; 
-Dh = 20*0.8; 
+Ph = 10*1; % questo piu alto ==> x_d = x_m
+Dh = 20*0.8;
 
 % Human impedance parameters
 Jh = 1;
@@ -38,4 +38,4 @@ Ks = 4*Km;
 % Environment impedance parameters
 Be = 100; 
 Ke = 200; 
-xe = 5;
+xe = 2;
