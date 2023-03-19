@@ -24,8 +24,8 @@ Bh = 1;
 % Inertia/Damping of robot dynamics
 Mm = 0.5;
 Ms = 2;
-Dm = 0;
-Ds = 0;
+Dm = 5;
+Ds = 10;
 
 % Master controller
 Bm = 20*0.8;
