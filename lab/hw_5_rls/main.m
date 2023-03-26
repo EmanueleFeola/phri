@@ -39,9 +39,9 @@ legend("kalman esimated velocity", "'real' velocity");
 xlabel('time [s]');
 ylabel('velocity');
 
-set(gcf, 'Position', get(0, 'Screensize'));
-export_fig(strcat('C:\Users\emanuele\Desktop\phri_report_images\', datestr(now,'dd_mm_yyyy_HH_MM_SS_FFF')), '-pdf');
-close;
+% set(gcf, 'Position', get(0, 'Screensize'));
+% export_fig(strcat('C:\Users\emanuele\Desktop\phri_report_images\', datestr(now,'dd_mm_yyyy_HH_MM_SS_FFF')), '-pdf');
+% close;
 
 figure();
 plot(kalman_acc);
@@ -49,9 +49,9 @@ legend("kalman estimated acc");
 xlabel('time [s]');
 ylabel('acceleration');
 
-set(gcf, 'Position', get(0, 'Screensize'));
-export_fig(strcat('C:\Users\emanuele\Desktop\phri_report_images\', datestr(now,'dd_mm_yyyy_HH_MM_SS_FFF')), '-pdf');
-close;
+% set(gcf, 'Position', get(0, 'Screensize'));
+% export_fig(strcat('C:\Users\emanuele\Desktop\phri_report_images\', datestr(now,'dd_mm_yyyy_HH_MM_SS_FFF')), '-pdf');
+% close;
 
 %% least squares
 X = [kalman_vel, kalman_acc];
@@ -92,14 +92,25 @@ legend("'real' voltage", "estimated voltage (least squares)", "estimated voltage
 xlabel('time [s]');
 ylabel('voltage [V]');
 
+% set(gcf, 'Position', get(0, 'Screensize'));
+% export_fig(strcat('C:\Users\emanuele\Desktop\phri_report_images\', datestr(now,'dd_mm_yyyy_HH_MM_SS_FFF')), '-pdf');
+% close;
+%% tau param estimation comparison
+motor_k_rls = motor_k_rls(25:end);
+motor_tau_rls = motor_tau_rls(25:end);
+
+figure();
+subplot(2, 1, 1)
+hold on;
+plot(motor_k_ls * ones(size(motor_k_rls, 1), 1));
+plot(motor_k_rls);
+legend("motor k (ls)", "motor k (rls)");
+
+subplot(2, 1, 2)
+hold on;
+plot(motor_tau_ls * ones(size(motor_tau_rls, 1), 1));
+plot(motor_tau_rls);
+legend("motor tau (ls)", "motor tau (rls)");
 set(gcf, 'Position', get(0, 'Screensize'));
 export_fig(strcat('C:\Users\emanuele\Desktop\phri_report_images\', datestr(now,'dd_mm_yyyy_HH_MM_SS_FFF')), '-pdf');
 close;
-%% tau param estimation comparison
-% figure();
-% hold on;
-% plot(motor_k_ls * ones(size(X, 1), 1));
-% plot(motor_k_rls);
-% % plot(motor_tau_ls * ones(size(X, 1), 1));
-% % plot(motor_tau_rls);
-% legend("motor tau (ls)", "motor tau (rls)");
