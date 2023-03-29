@@ -3,8 +3,8 @@ clear all;
 close all;
 
 % scattering
-b = 100;
-scattering_filter_freq = 100;
+b = 40;
+scattering_filter_freq = 10;
 
 % delay
 % time_delay = 0.0001;
@@ -12,7 +12,7 @@ discrete_delay = 100;
 Ts = 0.001;
 
 % Input function parameter (sin or step with low pass filter)
-A = 5;
+A = 3;
 
 % Low pass frequency cuff off
 Flp = 0.5;
@@ -42,12 +42,12 @@ Ds = 0;
 % Ks = 10;
 
 % Master controller
-Bm = 20*0.8;
-Km = 10*1;
+% Bm = 20*0.8;
+% Km = 10*0.5;
 
 % Slave controller
-Bs = 4*Bm; 
-Ks = 4*Km; 
+Bs = 10; %4*Bm; 
+Ks = 100; %4*Km; 
 
 % Environment impedance parameters
 Be = 100; 

@@ -4,7 +4,7 @@ close all;
 
 % scattering
 b = 100;
-scattering_filter_freq = 100;
+scattering_filter_freq = 10;
 
 % delay
 % time_delay = 0.0001;
@@ -12,7 +12,7 @@ discrete_delay = 100;
 Ts = 0.001;
 
 % Input function parameter (sin or step with low pass filter)
-A = 1;
+A = 3;
 
 % Low pass frequency cuff off
 Flp = 0.5;

@@ -39,5 +39,5 @@ ylabel('force');
 legend('fs=fe', 'fm=fh');
 
 set(gcf, 'Position', get(0, 'Screensize'));
-export_fig(strcat('C:\Users\emanuele\Desktop\phri_report_images\', datestr(now,'dd_mm_yyyy_HH_MM_SS_FFF')), '-eps');
+export_fig(strcat('C:\Users\emanuele\Desktop\phri_report_images\', datestr(now,'dd_mm_yyyy_HH_MM_SS_FFF')), '-pdf');
 % close
